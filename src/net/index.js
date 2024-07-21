@@ -96,7 +96,9 @@ function logout(success,failure = defaultFailure) {
         ElMessage.success('退出登录成功！')
         success()
     }, failure)
-
+}
+function unauthorized() {
+    return !takeAccessToken()
 }
 
-export {login, logout, get, post}
+export {login, logout, get, post,unauthorized}
