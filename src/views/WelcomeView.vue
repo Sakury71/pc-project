@@ -2,9 +2,9 @@
 </script>
 <template>
   <div style="width: 100vw;height: 100vh;overflow: hidden;display: flex">
-    <div style="flex: 1;background-color: black">
+    <div style="flex: 1">
       <el-image style="width: 100%;height:100%" fit="cover"
-                src="https://live.staticflickr.com/3656/3303662840_d6d1dbecfd_b.jpg">
+                :src="'src/assets/img/login.png'">
       </el-image>
     </div>
     <div class="welcome-title">

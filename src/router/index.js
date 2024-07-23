@@ -19,21 +19,22 @@ const router = createRouter({
         {
             path: "/home",
             name: "home",
-            component: () => import("@/views/HomeView.vue"),
+            component: () => import("@/views/HomeIndexView.vue"),
             children: [],
         },
     ],
 })
-router.beforeEach((to, from, next) => {
-    const isUnauthorized = unauthorized()
-    if (to.name.startsWith('welcome-') && !isUnauthorized) {
-        next('/home')
-    } else if (to.fullPath.startsWith('/home') && isUnauthorized) {
-        next('/')
-    } else {
-        next()
-    }
-})
+//路由守卫
+// router.beforeEach((to, from, next) => {
+//     const isUnauthorized = unauthorized()
+//     if (to.name.startsWith('welcome-') && !isUnauthorized) {
+//         next('/home')
+//     } else if (to.fullPath.startsWith('/home') && isUnauthorized) {
+//         next('/')
+//     } else {
+//         next()
+//     }
+// })
 
 
 export default router;
