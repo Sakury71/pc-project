@@ -1,11 +1,11 @@
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 
 const images = ref([
-  {src: 'src/assets/img/login.png', alt: 'Image 1'},
-  {src: 'src/assets/img/tupian.jpg', alt: 'Image 2'},
-  {src: '/path/to/image3.jpg', alt: 'Image 3'},
-  {src: '/path/to/image4.jpg', alt: 'Image 4'},
+  { src: 'src/assets/img/zhanlan1.png', alt: 'Image 1' },
+  { src: 'src/assets/img/zhanlan2.png', alt: 'Image 2' },
+  { src: 'src/assets/img/zhanlan3.png', alt: 'Image 3' },
+  { src: 'src/assets/img/zhanlan4.png', alt: 'Image 4' },
 ]);
 </script>
 
@@ -13,8 +13,8 @@ const images = ref([
   <div class="container">
     <el-carousel style="width:750px;" height="400px" motion-blur>
       <el-carousel-item v-for="(item, index) in images" :key="index"
-                        :style="{ borderRadius: '10px', overflow: 'hidden' }">
-        <img :src="item.src" :alt="item.alt" class="carousel-image"/>
+        :style="{ borderRadius: '10px', overflow: 'hidden' }">
+        <img :src="item.src" :alt="item.alt" class="carousel-image" />
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -25,6 +25,7 @@ const images = ref([
   justify-content: center;
   padding-left: 50px;
   padding-top: 10px;
+  margin-top: 25px;
   border-radius: 10px;
 }
 
@@ -41,5 +42,4 @@ const images = ref([
   margin: 0;
   text-align: center;
 }
-
 </style>

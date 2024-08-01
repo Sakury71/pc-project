@@ -3,17 +3,29 @@
 </script>
 
 <template>
-  <div class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-    </ul>
-    <p class="text-center text-muted">© 2024 南京财经大学时创</p>
+  <div class="Footer-container">
+    <div class="main-line"></div>
+    <p class="text-center ">© 2024 南京财经大学 时创</p>
   </div>
 </template>
 
 <style scoped>
+.Footer-container {
+  color: white;
+}
+
+.main-line {
+  display: block;
+  height: 3px;
+  width: 100%;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  color: rgb(208, 207, 207);
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(93, 90, 90);
+  background-origin: padding-box;
+  background-size: auto;
+}
 </style>

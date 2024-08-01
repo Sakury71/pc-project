@@ -1,5 +1,5 @@
 <script setup>
-import {logout} from "@/net/index.js";
+import { logout } from "@/net/index.js";
 import router from "@/router/index.js";
 
 function userLogout() {
@@ -10,34 +10,31 @@ function userLogout() {
 </script>
 
 <template>
-  <header class="p-3 mb-3 ">
+  <header>
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" style="margin-left: 400px;">
+          <li><a href="#" class="nav-link px-2 header-font">首页</a></li>
+          <li><a href="#" class="nav-link px-2 header-font">非遗一览</a></li>
+          <li><a href="#" class="nav-link px-2 header-font">非遗学堂</a></li>
+          <li><a href="#" class="nav-link px-2 header-font">关于我们</a></li>
         </ul>
-
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+          <input type="search" class="form-control" placeholder="搜索" aria-label="Search">
         </form>
-
         <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="#">个人首页</a></li>
+            <li><a class="dropdown-item" href="#">消息中心</a></li>
+            <li><a class="dropdown-item" href="#">我的好友</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="/">退出登录</a></li>
           </ul>
         </div>
       </div>
@@ -46,4 +43,19 @@ function userLogout() {
 </template>
 
 <style scoped>
+.container {
+  padding-top: 6px;
+}
+
+.header-font {
+  font-family: 微软雅黑, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 18.4px;
+  text-wrap: nowrap;
+  white-space-collapse: collapse;
+  color: aliceblue;
+  margin-right: 15px;
+  margin-left: 15px;
+}
 </style>
