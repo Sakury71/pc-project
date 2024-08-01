@@ -5,22 +5,25 @@
 <template>
   <div class="Footer-container">
     <div class="main-line"></div>
-    <p class="text-center ">© 2024 南京财经大学 时创</p>
+    <p class=" ">© 2024 南京财经大学 时创</p>
   </div>
 </template>
 
 <style scoped>
 .Footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
+
 }
 
 .main-line {
-  display: block;
   height: 3px;
-  width: 100%;
+  width: 90%;
   margin-bottom: 25px;
   margin-top: 25px;
-  color: rgb(208, 207, 207);
   background-repeat: repeat;
   background-attachment: scroll;
   background-clip: border-box;

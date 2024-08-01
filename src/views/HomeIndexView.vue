@@ -31,8 +31,6 @@ import Hello from "@/components/Main/Hello.vue";
   height: 880px;
   width: 100%;
   flex-direction: column;
-  overflow-x: auto;
-  overflow-y: auto;
   background-color: #475669;
 }
 
@@ -59,15 +57,11 @@ import Hello from "@/components/Main/Hello.vue";
   transition-duration: 0.3s, 0.3s, 0.3s;
   transition-property: height, top, transform;
   transition-timing-function: ease, ease, cubic-bezier(0.22, 0.61, 0.36, 1);
-
-
-
 }
 
 .common-footer {
   height: auto;
   background-color: #151515;
-  color: white;
 }
 
 .main-bg-cover {
@@ -78,9 +72,5 @@ import Hello from "@/components/Main/Hello.vue";
   color: rgb(208, 207, 207);
   background-image: url(https://www.itbaima.cn/image/welcome/background/bg-cover-dark.webp);
   background-size: 100% 100%;
-}
-
-.main-bg-cover-container {
-  overflow-x: hidden;
 }
 </style>
