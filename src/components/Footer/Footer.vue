@@ -1,11 +1,10 @@
 <script setup>
-
 </script>
 
 <template>
   <div class="Footer-container">
     <div class="main-line"></div>
-    <p class=" ">© 2024 南京财经大学 时创</p>
+    <p class="footer-font">© 2024 南京财经大学 时创</p>
   </div>
 </template>
 
@@ -30,8 +29,16 @@
   background-repeat: repeat;
   background-attachment: scroll;
   background-clip: border-box;
-  background-color: rgb(93, 90, 90);
+  background-color: rgb(142, 126, 126);
   background-origin: padding-box;
   background-size: auto;
+}
+
+.footer-font {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.8;
+  text-align: center;
+  padding: 0;
 }
 </style>
