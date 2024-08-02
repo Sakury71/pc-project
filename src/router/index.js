@@ -1,5 +1,5 @@
-import {createRouter, createWebHistory,} from "vue-router";
-import {unauthorized} from "@/net/index.js";
+import { createRouter, createWebHistory, } from "vue-router";
+import { unauthorized } from "@/net/index.js";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,8 +20,22 @@ const router = createRouter({
             path: "/home",
             name: "home",
             component: () => import("@/views/HomeIndexView.vue"),
-            children: [],
         },
+        {
+            path: "/article",
+            name: "article",
+            component: () => import("@/views/ArticleIndexView.vue"),
+        },
+        {
+            path: "/video",
+            name: "video",
+            component: () => import("@/views/VideoIndexView.vue"),
+        },
+        {
+            path: "/about",
+            name: "about",
+            component: () => import("@/views/AboutView.vue"),
+        }
     ],
 })
 //路由守卫

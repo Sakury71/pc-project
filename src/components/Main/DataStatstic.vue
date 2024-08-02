@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useTransition } from '@vueuse/core'
-import { CaretBottom, CaretTop, Warning } from "@element-plus/icons-vue";
+import { CaretTop, Warning } from "@element-plus/icons-vue";
 
+const url = ref('src/assets/img/datapicture.png')
 const source1 = ref(0)
 const source2 = ref(0)
 const source3 = ref(0)
@@ -22,6 +23,9 @@ source3.value = 23
 <template>
   <div class="Data-container">
     <div class="statistic-title">非遗数据统计</div>
+    <div class="statistic-img">
+      <el-image :src="url" />
+    </div>
     <div class="statistic-content">
       <el-row :gutter="16">
         <el-col :span="8">
@@ -114,21 +118,33 @@ source3.value = 23
 <style scoped>
 .Data-container {
   background-color: #151515;
-  width: 1707.32px;
-  height: 500px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .statistic-title {
+  margin-bottom: 25px;
   height: auto;
   width: 600px;
   font-size: 50px;
   font-weight: 700;
-  letter-spacing: 6px;
+  letter-spacing: 15px;
   text-align: center;
   color: white;
+}
+
+.statistic-img {
+  height: 400px;
+  width: 750px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: aqua;
+}
+
+.statistic-content {
+  height: auto;
 }
 
 :global(h2#card-usage ~ .example .example-showcase) {

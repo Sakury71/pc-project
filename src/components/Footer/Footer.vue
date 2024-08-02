@@ -16,6 +16,9 @@
   justify-content: center;
   align-items: center;
   color: white;
+  height: auto;
+  background-color: #151515;
+  overflow: hidden;
 
 }
 
