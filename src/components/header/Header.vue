@@ -55,7 +55,6 @@ function userLogout() {
 .header-view {
   position: fixed;
   box-sizing: border-box;
-  display: block;
   height: 58px;
   min-height: 58px;
   padding-bottom: 0px;
