@@ -1,7 +1,7 @@
 <script setup>
-import {User, Lock} from '@element-plus/icons-vue'
-import {reactive, ref} from 'vue'
-import {login} from '@/net'
+import { User, Lock } from '@element-plus/icons-vue'
+import { reactive, ref } from 'vue'
+import { login } from '@/net'
 import router from "@/router/index.js";
 
 const formRef = ref()
@@ -13,12 +13,12 @@ const form = reactive({
 })
 const rule = {
   username: [
-    {required: true, message: '请输入用户名', trigger: 'blur'},
-    {min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur'}
+    { required: true, message: '请输入用户名', trigger: 'blur' },
+    { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
   ],
   password: [
-    {required: true, message: '请输入密码', trigger: 'blur'},
-    {min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur'}
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
   ]
 }
 
@@ -30,6 +30,9 @@ function userLogin() {
       })
     }
   })
+}
+function userRegister() {
+  router.push('/register')
 }
 </script>
 
@@ -45,7 +48,7 @@ function userLogin() {
           <el-input v-model="form.username" type="text" maxlength="15" placeholder="用户名/邮箱">
             <template #prefix>
               <el-icon>
-                <User/>
+                <User />
               </el-icon>
             </template>
           </el-input>
@@ -54,11 +57,11 @@ function userLogin() {
           <el-input v-model="form.password" type="password" maxlength="20" placeholder="密码" show-password>
             <template #prefix>
               <el-icon>
-                <Lock/>
+                <Lock />
               </el-icon>
             </template>
           </el-input>
-        </el-form-item >
+        </el-form-item>
         <el-row>
           <el-col :span="12" style="text-align: left">
             <el-form-item prop="remember">
@@ -75,11 +78,9 @@ function userLogin() {
       <el-button @click="userLogin()" type="primary" plain style="width: 270px">立 即 登 录</el-button>
     </div>
     <div style="margin-top: 25px">
-      <el-link>没有账号？立即注册</el-link>
+      <el-link @click="userRegister()">没有账号？立即注册</el-link>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

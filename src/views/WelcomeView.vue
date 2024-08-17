@@ -12,7 +12,11 @@
       <div style="font-size: 18px;margin-top: 7px">在这里你可以观看非遗视频，了解非遗文化，快来加入我们吧！</div>
     </div>
     <div class="right-card">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="el-fade-in-linear" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
   </div>
 </template>

@@ -13,6 +13,11 @@ const router = createRouter({
                     path: '',
                     name: 'welcome-login',
                     component: () => import('@/views/welcome/LoginPage.vue')
+                },
+                {
+                    path: 'register',
+                    name: 'welcome-register',
+                    component: () => import('@/views/welcome/RegisterPage.vue')
                 }
             ],
         },
@@ -39,16 +44,14 @@ const router = createRouter({
     ],
 })
 //路由守卫
-// router.beforeEach((to, from, next) => {
-//     const isUnauthorized = unauthorized()
-//     if (to.name.startsWith('welcome-') && !isUnauthorized) {
-//         next('/home')
-//     } else if (to.fullPath.startsWith('/home') && isUnauthorized) {
-//         next('/')
-//     } else {
-//         next()
-//     }
-// })
-
-
+router.beforeEach((to, from, next) => {
+    const isUnauthorized = unauthorized()
+    if (to.name.startsWith('welcome-') && !isUnauthorized) {
+        next('/home')
+    } else if (to.fullPath.startsWith('/home') && isUnauthorized) {
+        next('/')
+    } else {
+        next()
+    }
+})
 export default router;

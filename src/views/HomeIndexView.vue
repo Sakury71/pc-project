@@ -26,6 +26,7 @@ import Hello from "@/components/Main/Hello.vue";
     <el-footer style="padding:0">
       <Footer />
     </el-footer>
+    <el-backtop :right="100" :bottom="100" />
   </el-container>
 </template>
 
@@ -34,7 +35,6 @@ import Hello from "@/components/Main/Hello.vue";
   display: flex;
   flex-direction: column;
   background-color: #475669;
-
 }
 
 .main-bg-cover {

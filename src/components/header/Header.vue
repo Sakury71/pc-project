@@ -44,7 +44,7 @@ function userLogout() {
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="/">退出登录</a></li>
+          <li><a class="dropdown-item" href="#" @click="userLogout">退出登录</a></li>
         </ul>
       </div>
     </div>
