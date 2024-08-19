@@ -170,6 +170,9 @@ var handleNodeClick = function (node) {
     dataResources.value = response;
   });
 };
+var webPageRedirection = function () {
+  window.location.href = 'https://klingai.kuaishou.com/'
+}
 
 </script>
 <template>
@@ -194,6 +197,7 @@ var handleNodeClick = function (node) {
             <template #header>
               <div class="card-header">
                 <span>{{ item.name }}</span>
+                <el-button type="primary" round style="" @click="webPageRedirection()">点我去"二创"</el-button>
               </div>
             </template>
             <div class="card-content">{{ item.details }}</div>
@@ -266,6 +270,8 @@ var handleNodeClick = function (node) {
 }
 
 .card-header {
+  display: flex;
+  justify-content: space-between;
   font-size: 22px;
   font-weight: 700;
   line-height: 24px;
