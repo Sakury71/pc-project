@@ -1,9 +1,11 @@
 <script setup>
-import { get } from '@/net/index.js';
+import axios from 'axios';
+import { get, post } from '@/net/index.js';
 import Header from '@/components/Header/Header.vue'
 import Footer from "@/components/Footer/Footer.vue";
 import { ref } from 'vue';
 import { ElTreeV2 } from 'element-plus';
+const accessToken = 'fe4f213e53662ad177f17bfca6d20797';
 var query = ref('');
 var treeRef = ref(null);
 var props = {
@@ -170,10 +172,71 @@ var handleNodeClick = function (node) {
     dataResources.value = response;
   });
 };
+
+// Custom post function using axios
+function customPost(url, data, success, failure = defaultFailure) {
+  axios.post(url, data, { headers: { 'Content-Type': 'application/json' } })
+    .then(success)
+    .catch(failure);
+}
+
+// Default failure handler for requests
+function defaultFailure(error) {
+  console.error("Request failed:", error);
+}
+
+// Play audio from a provided URL
+function playAudio(audioUrl) {
+  const audio = new Audio(audioUrl);
+  audio.play()
+    .then(() => console.log("Audio is playing"))
+    .catch((error) => console.error("Audio playback error:", error));
+}
+function sendTextToSpeech(text) {
+  const requestData = {
+    access_token: accessToken,
+    type: "tts",
+    brand: "gpt-sovits",
+    name: "anime",
+    method: "api",
+    prarm: {
+      speaker: "派蒙【原神】",
+      emotion: "中立",
+      text: text,
+      text_language: "中文",
+      text_split_method: "按标点符号切",
+      fragment_interval: 0.3,
+      batch_size: 1,
+      batch_threshold: 0.75,
+      parallel_infer: true,
+      split_bucket: true,
+      top_k: 10,
+      top_p: 1.0,
+      temperature: 1.0,
+      speed_factor: 1.0,
+    },
+  };
+
+  // Use the custom post function for the API call
+  customPost(
+    'proxy/tts',
+    requestData,
+    (response) => {
+      if (response.data.data.audio) {
+        console.log("Audio URL:", response.data.data.audio);
+        playAudio(response.data.data.audio);
+      } else {
+        console.error("No audio URL received from the response.");
+      }
+    },
+    (error) => {
+      console.error("Error in text-to-speech request:", error);
+    }
+  );
+}
 var webPageRedirection = function () {
   window.location.href = 'https://klingai.kuaishou.com/'
 }
-
 </script>
 <template>
   <div class="article-container">
@@ -200,7 +263,7 @@ var webPageRedirection = function () {
                 <el-button type="primary" round style="" @click="webPageRedirection()">点我去"二创"</el-button>
               </div>
             </template>
-            <div class="card-content">{{ item.details }}</div>
+            <div class="card-content" @click="sendTextToSpeech(item.details)">{{ item.details }}</div>
             <template #footer>
               <div class="card-footer">{{ item.location }}</div>
               <div class="card-footer">{{ item.year }}</div>
