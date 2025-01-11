@@ -22,10 +22,10 @@
 }
 
 .main-line {
-  height: 3px;
+  height: 2px;
   width: 90%;
-  margin-bottom: 25px;
-  margin-top: 25px;
+  margin-bottom: 15px;
+  margin-top: 20px;
   background-repeat: repeat;
   background-attachment: scroll;
   background-clip: border-box;
@@ -35,10 +35,11 @@
 }
 
 .footer-font {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.8;
   text-align: center;
   padding: 0;
+  margin: 0;
 }
 </style>

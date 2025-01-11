@@ -21,6 +21,7 @@ function userLogout() {
         <ul class="nav col-12">
           <li><a href="/home" class="nav-link px-2 header-font">首页</a></li>
           <li><a href="/article" class="nav-link px-2 header-font">非遗一览</a></li>
+          <li><a href="/create" class="nav-link px-2 header-font">非遗二创</a></li>
           <li><a href="/video" class="nav-link px-2 header-font">非遗学堂</a></li>
           <li><a href="/about" class="nav-link px-2 header-font">关于我们</a></li>
         </ul>

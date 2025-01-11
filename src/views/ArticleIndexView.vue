@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import { get, post } from '@/net/index.js';
+import { get } from '@/net/index.js';
 import Header from '@/components/Header/Header.vue'
 import Footer from "@/components/Footer/Footer.vue";
 import { ref } from 'vue';

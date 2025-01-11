@@ -1,6 +1,6 @@
 <script setup>
 import Header from '@/components/Header/Header.vue'
-import Footer from "@/components/Footer/Footer.vue";
+import Footer from '@/components/Footer/Footer.vue'
 import { MoreFilled } from '@element-plus/icons-vue'
 
 const activities = [
