@@ -5,6 +5,7 @@ import Header from '@/components/Header/Header.vue'
 import Footer from "@/components/Footer/Footer.vue";
 import { ref } from 'vue';
 import { ElTreeV2 } from 'element-plus';
+import router from '../router';
 const accessToken = 'fe4f213e53662ad177f17bfca6d20797';
 var query = ref('');
 var treeRef = ref(null);
@@ -167,11 +168,18 @@ var filterMethod = function (query, node) {
   return node.label.includes(query);
 };
 var handleNodeClick = function (node) {
-  const url = `/data/test?location=${node.label}`;
+  const url = `/data/locate?location=${node.label}`;
   get(url, function (response) {
     dataResources.value = response;
   });
 };
+
+function onEnterPressed() {
+  const url = `/data/name?name=${query.value}`;
+  get(url, function (response) {
+    dataResources.value = response;
+  });
+}
 
 // Custom post function using axios
 function customPost(url, data, success, failure = defaultFailure) {
@@ -234,9 +242,9 @@ function sendTextToSpeech(text) {
     }
   );
 }
-var webPageRedirection = function () {
-  window.location.href = 'https://klingai.kuaishou.com/'
-}
+const webPageRedirection = (name) => {
+  router.push({ path: '/create', query: { name: name } });
+};
 </script>
 <template>
   <div class="article-container">
@@ -248,7 +256,8 @@ var webPageRedirection = function () {
     <div class="article-body">
       <!-- 左侧目录树 -->
       <div class="article-body-left">
-        <el-input v-model="query" class="article-body-left-search" placeholder="请输入关键词" @input="onQueryChanged" />
+        <el-input v-model="query" class="article-body-left-search" placeholder="请输入非遗关键词！"
+          @keydown.enter="onEnterPressed" />
         <el-tree-v2 ref="treeRef" class="article-body-left-tree" :data="data" :props="props" :height="680"
           :expand-on-click-node="true" :highlight-current="true" :filter-method="filterMethod"
           @node-click="handleNodeClick" />
@@ -260,7 +269,7 @@ var webPageRedirection = function () {
             <template #header>
               <div class="card-header">
                 <span>{{ item.name }}</span>
-                <el-button type="primary" round style="" @click="webPageRedirection()">点我去"二创"</el-button>
+                <el-button type="primary" round @click="webPageRedirection(item.name)">点我去'二创'</el-button>
               </div>
             </template>
             <div class="card-content" @click="sendTextToSpeech(item.details)">{{ item.details }}</div>
@@ -308,7 +317,7 @@ var webPageRedirection = function () {
 }
 
 .article-body-left-tree {
-  height: 680px;
+  height: 700px;
   overflow: hidden;
   border-radius: 8px;
   font-size: 18px;
